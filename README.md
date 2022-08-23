@@ -1,2 +1,2 @@
-# Eldritch-Horror-helper
-Simple Vanilla JS application for mythos cards shuffling
+Simple Vanilla JS application for mythos cards shuffling :black_joker:    
+Deployment link: TBD
