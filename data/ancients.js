@@ -1,86 +1,87 @@
-import Ancients from '../assets/Ancients/index'
+// import Ancients from '../assets/Ancients/index.js'
 
-const ancientsData = [
-  {
-    id: 'azathoth',
-    name: 'azathoth',
-    cardFace: Ancients.azathoth,
-    firstStage: {
-      greenCards: 1,
-      blueCards: 1,
-      brownCards: 2,
+const ancientsData = {
+    azathoth: {
+    // cardFace: Ancients.azathoth,
+      stages: [
+        {
+          green: 1,
+          blue: 1,
+          brown: 2,
+        },
+        {
+          green: 2,
+          blue: 1,
+          brown: 3,
+        },
+        {
+          green: 2,
+          blue: 0,
+          brown: 4,
+        },
+      ],
     },
-    secondStage: {
-      greenCards: 2,
-      blueCards: 1,
-      brownCards: 3,
+    cthulhu: {
+    // cardFace: Ancients.cthulhu,
+      stages: [
+        {
+          green: 0,
+          blue: 2,
+          brown: 2,
+        },
+        {
+          green: 1,
+          blue: 0,
+          brown: 3,
+        },
+        {
+          green: 3,
+          blue: 0,
+          brown: 4,
+        },
+      ],
     },
-    thirdStage: {
-      greenCards: 2,
-      blueCards: 0,
-      brownCards: 4,
-    },
-  },
-  {
-    id: 'cthulhu',
-    name: 'cthulhu',
-    cardFace: Ancients.cthulhu,
-    firstStage: {
-      greenCards: 0,
-      blueCards: 2,
-      brownCards: 2,
-    },
-    secondStage: {
-      greenCards: 1,
-      blueCards: 0,
-      brownCards: 3,
-    },
-    thirdStage: {
-      greenCards: 3,
-      blueCards: 0,
-      brownCards: 4,
-    },
-  },
-  {
-    id: 'iogSothoth',
-    name: 'iogSothoth',
-    cardFace: Ancients.iogSothoth,
-    firstStage: {
-      greenCards: 0,
-      blueCards: 1,
-      brownCards: 2,
-    },
-    secondStage: {
-      greenCards: 2,
-      blueCards: 1,
-      brownCards: 3,
-    },
-    thirdStage: {
-      greenCards: 3,
-      blueCards: 0,
-      brownCards: 4,
-    },
-  },
-  {
-    id: 'shubNiggurath',
-    name: 'shubNiggurath',
-    cardFace: Ancients.shubNiggurath,
-    firstStage: {
-      greenCards: 1,
-      blueCards: 1,
-      brownCards: 2,
-    },
-    secondStage: {
-      greenCards: 3,
-      blueCards: 1,
-      brownCards: 2,
-    },
-    thirdStage: {
-      greenCards: 2,
-      blueCards: 0,
-      brownCards: 4,
-    },
-  },
-]
 
-export default ancientsData
+    iogSothoth: {
+    // cardFace: Ancients.iogSothoth,
+      stages: [
+        {
+          green: 0,
+          blue: 1,
+          brown: 2,
+        },
+        {
+          green: 2,
+          blue: 1,
+          brown: 3,
+        },
+        {
+          green: 3,
+          blue: 0,
+          brown: 4,
+        },
+      ],
+    },
+    shubNiggurath: {
+    // cardFace: Ancients.shubNiggurath,
+      stages: [
+        {
+          green: 1,
+          blue: 1,
+          brown: 2,
+        },
+        {
+          green: 3,
+          blue: 1,
+          brown: 2,
+        },
+        {
+          green: 2,
+          blue: 0,
+          brown: 4,
+        },
+      ],
+    },
+}
+
+export default ancientsData;

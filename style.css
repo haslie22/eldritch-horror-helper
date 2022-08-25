@@ -1,1 +1,26 @@
-/* Style rules to be here */
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-image: url(./assets/Images/background.jpeg);
+    background-size: 50%;
+}
+
+header {
+    height: 30vh;
+}
+
+main {
+    height: 40vh;
+}
+
+footer {
+    height: 30vh;
+}
