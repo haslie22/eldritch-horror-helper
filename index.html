@@ -10,16 +10,45 @@
     <title>Eldritch Horror Helper</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/fonts.css">  
+    <link rel="stylesheet" href="./styles/style.css">
     <script type="module" src="./scripts/main.js"></script>
 </head>
 <body>
     <div class="js-overlay-popup"></div>
     <div class="js-overlay"></div>
     <div class="wrapper">
-        <header class="header"></header>
-        <main class="main"></main>
-        <footer class="footer"></footer>
+        <header class="header">
+            <div class="title__wrapper">
+                <h1 class="title text-shadow">Eldritch Horror</h1>
+                <h2 class="title__subtitle_ancients js-hide-opacity">Выберите карту Древнего</h2>
+            </div>
+        </header>
+        <main class="main">
+            <div class="ancients-cards__container">
+                <div class="ancient-cards__card azathoth">
+                    <img class="ancient-cards__card-image" src="./assets/Ancients/Azathoth.png" alt="Azathoth" class="ancient-cards__card-image">
+                </div>
+                <div class="ancient-cards__card cthulthu">
+                    <img class="ancient-cards__card-image" src="./assets/Ancients/Cthulthu.png" alt="Cthulthu" class="ancient-cards__card-image">
+                </div>
+                <div class="ancient-cards__card iogsothoth">
+                    <img class="ancient-cards__card-image " src="./assets/Ancients/IogSothoth.png" alt="IogSothoth" class="ancient-cards__card-image">
+                </div>
+                <div class="ancient-cards__card shubniggurath">
+                    <img class="ancient-cards__card-image" src="./assets/Ancients/ShubNiggurath.png" alt="ShubNiggurath" class="ancient-cards__card-image">
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="ancient-button-container">
+                <button class="ancient-button button-shadow" disabled>Продолжить</button>
+            </div>
+        </footer>
     </div>  
 </body>
 </html>

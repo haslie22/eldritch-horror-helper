@@ -1,7 +1,7 @@
-import blueCardsData from "../data/mythicCards/blue/index.js";
-import brownCardsData from "../data/mythicCards/brown/index.js";
-import greenCardsData from "../data/mythicCards/green/index.js";
-import ancientsData from "../data/ancients.js";
+import blueCardsData from "../../data/mythicCards/blue/index.js";
+import brownCardsData from "../../data/mythicCards/brown/index.js";
+import greenCardsData from "../../data/mythicCards/green/index.js";
+import ancientsData from "../../data/ancients.js";
 import {shuffle, chooseCardsByDifficulty} from './cardDeck-helper.js';
 
 export class CardDeck {
