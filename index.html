@@ -29,24 +29,82 @@
             </div>
         </header>
         <main class="main">
-            <div class="ancients-cards__container">
-                <div class="ancient-cards__card azathoth">
-                    <img class="ancient-cards__card-image" src="./assets/Ancients/Azathoth.png" alt="Azathoth" class="ancient-cards__card-image">
+            <div class="main__content-wrapper">
+                <div class="ancients-cards__container">
+                    <div class="ancient-cards__card azathoth">
+                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow azathoth" src="./assets/Ancients/Azathoth.png" alt="azathoth" class="ancient-cards__card-image">
+                    </div>
+                    <div class="ancient-cards__card cthulthu" >
+                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow cthulthu" src="./assets/Ancients/Cthulthu.png" alt="cthulhu" class="ancient-cards__card-image">
+                    </div>
+                    <div class="ancient-cards__card iogsothoth">
+                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow iogsothoth" src="./assets/Ancients/IogSothoth.png" alt="iogSothoth" class="ancient-cards__card-image">
+                    </div>
+                    <div class="ancient-cards__card shubniggurath">
+                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow shubniggurath" src="./assets/Ancients/ShubNiggurath.png" alt="shubNiggurath" class="ancient-cards__card-image">
+                    </div>
                 </div>
-                <div class="ancient-cards__card cthulthu">
-                    <img class="ancient-cards__card-image" src="./assets/Ancients/Cthulthu.png" alt="Cthulthu" class="ancient-cards__card-image">
+                <ul class="radios-container js-hide-fast">
+                    <li class="radios-button-container">
+                        <input class="radio__input" type="radio" name="level-option" value="super-easy" id="super-easy">
+                        <label class="radio__label" for="super-easy">Очень низкая</label>
+                    </li>
+                    <li class="radios-button-container">
+                        <input class="radio__input" type="radio" name="level-option" value="easy" id="easy">
+                        <label class="radio__label" for="easy">Низкая</label>
+                    </li>
+                    <li class="radios-button-container">
+                        <input class="radio__input" type="radio" name="level-option" value="normal" id="normal">
+                        <label class="radio__label" for="normal">Средняя</label>
+                    </li>
+                    <li class="radios-button-container">
+                        <input class="radio__input" type="radio" name="level-option" value="hard" id="hard">
+                        <label class="radio__label" for="hard">Высокая</label>
+                    </li>
+                    <li class="radios-button-container">
+                        <input class="radio__input" type="radio" name="level-option" value="super-hard" id="super-hard">
+                        <label class="radio__label" for="super-hard">Очень высокая</label>
+                    </li>
+                </ul>
+                <div class="state-container js-hide-opacity">
+                    <div class="stage-container">
+                        <span class="stage-title">I.</span>
+                        <div class="stage-dots-container">
+                            <div class="dot green">0</div>
+                            <div class="dot brown">0</div>
+                            <div class="dot blue">0</div>
+                        </div>
+                    </div>
+                    <div class="stage-container">
+                        <span class="stage-title">II.</span>
+                        <div class="stage-dots-container">
+                            <div class="dot green">0</div>
+                            <div class="dot brown">0</div>
+                            <div class="dot blue">0</div>
+                        </div>
+                    </div>
+                    <div class="stage-container">
+                        <span class="stage-title">III.</span>
+                        <div class="stage-dots-container">
+                            <div class="dot green">0</div>
+                            <div class="dot brown">0</div>
+                            <div class="dot blue">0</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="ancient-cards__card iogsothoth">
-                    <img class="ancient-cards__card-image " src="./assets/Ancients/IogSothoth.png" alt="IogSothoth" class="ancient-cards__card-image">
-                </div>
-                <div class="ancient-cards__card shubniggurath">
-                    <img class="ancient-cards__card-image" src="./assets/Ancients/ShubNiggurath.png" alt="ShubNiggurath" class="ancient-cards__card-image">
+                <div class="deck-container js-hide-opacity">
+                    <div class="card-back__container">
+                        <img src="./assets/Images/mythicCardBackground.png" alt="Card back" class="card-back__image">
+                    </div>
+                    <div class="current-card-container">
+                        <img class="current-card" src="./assets/Images/card-transparent.png" alt="current card">
+                    </div>
                 </div>
             </div>
         </main>
         <footer class="footer">
             <div class="ancient-button-container">
-                <button class="ancient-button button-shadow" disabled>Продолжить</button>
+                <button class="ancient-button" disabled>Продолжить</button>
             </div>
         </footer>
     </div>  

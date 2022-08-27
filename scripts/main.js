@@ -1,24 +1,36 @@
 import {CardDeck} from "./algo/cardDeck.js";
 
-let myDeck = new CardDeck('azathoth', 'normal');
-
 const ancientsCardsContainer = document.querySelector('.ancients-cards__container');
 const ancientsSubtitle = document.querySelector('.title__subtitle_ancients');
 const ancientsCards = document.querySelectorAll('.ancient-cards__card-image');
 const antientsCardsContainers = document.querySelectorAll('.ancient-cards__card');
-const ancientChoiceButton = document.querySelector('.ancient-button');
+const submitButton = document.querySelector('.ancient-button');
+const subtitle = document.querySelector('.title__subtitle_ancients');
+const levelButtons = document.querySelector('.radios-container');
+const levelButtonsInputs = document.querySelectorAll('.radio__input');
+const counterContainer = document.querySelector('.state-container');
+const cardBack = document.querySelector('.card-back__image');
+const cardContainer = document.querySelector('.deck-container');
+const currentCard = document.querySelector('.current-card')
+
+let activeAncient = '';
+let activeLevel = '';
+let deck;
 
 function showTitle() {
     ancientsSubtitle.classList.remove('js-hide-opacity');
 }
 
 setTimeout(showTitle, 500);
+setTimeout(toggleAncientsCardsDeck, 500);
 
 function selectAncient(e) {
     if (e.target != e.currentTarget) {
         ancientsCards.forEach(card => card.classList.remove('card-chosen'));
         e.target.classList.add('card-chosen');
-        ancientChoiceButton.disabled = false;
+        activeAncient = e.target.alt;
+        console.log(activeAncient);
+        submitButton.disabled = false;
     }
     e.stopPropagation();
 }
@@ -26,29 +38,87 @@ function selectAncient(e) {
 function removeselect(e) {
     if (!e.target.classList.contains('ancient-cards__card-image')) {
         ancientsCards.forEach(card => card.classList.remove('card-chosen'));
-        ancientChoiceButton.disabled = true;
+        submitButton.disabled = true;
+    }
+
+    if (!e.target.classList.contains('radio__label')) {
+        levelButtonsInputs.forEach(input => input.checked = false);
     }
 }
 
-function wrapAncientsCards() {
+function toggleAncientsCardsDeck() { //в обработчик для кнопки
     antientsCardsContainers.forEach(item => {
-        if (item.classList.contains('cthulthu')) item.classList.add('cthulthu-js-wrap');
-        else if (item.classList.contains('iogsothoth')) item.classList.add('iogsothoth-js-wrap');
-        else if (item.classList.contains('shubniggurath')) item.classList.add('shubniggurath-js-wrap');
+        if (item.classList.contains('cthulthu')) item.classList.toggle('cthulthu-js-distribute');
+        if (item.classList.contains('iogsothoth')) item.classList.toggle('iogsothoth-js-distribute');
+        if (item.classList.contains('shubniggurath')) item.classList.toggle('shubniggurath-js-distribute');
+        if (item.classList.contains('azathoth')) item.classList.toggle('azathoth-js-distribute');
     })
 }
 
-function addLevelButtons() {
+function changeListenerForButton() { //в обработчик для кнопки
+    ancientsCardsContainer.removeEventListener('click', selectAncient);
+    submitButton.addEventListener('click', startThirthScreen);
+}
 
+function changeSubtitle() { //в обработчик для кнопки
+    subtitle.classList.add('js-hide-opacity');
+    setTimeout(() => subtitle.textContent = 'Выберите уровень сложности', 500);
+    setTimeout(() => subtitle.classList.remove('js-hide-opacity'), 500);
+}
+
+function putActiveAncientOnTop() { //в обработчик для кнопки
+    antientsCardsContainers.forEach((item) => {
+        if (item.classList.contains(`${activeAncient}`)) item.classList.add('card-overlay');
+    });
+}
+
+function showLevelButtons() {
+    setTimeout(() => levelButtons.classList.remove('js-hide-fast'), 1000);
+}
+
+function startSecondScreen() {
+    changeSubtitle();
+    changeListenerForButton();
+    toggleAncientsCardsDeck();
+    putActiveAncientOnTop();
+    showLevelButtons();
+    ancientsCards.forEach((image) => image.style.cursor = 'default');
+    submitButton.removeEventListener('click', startSecondScreen);
+}
+
+function selectLevel(e) {
+    if (e.target != e.currentTarget) {
+        if (e.target.id) {
+            activeLevel = e.target.id;
+            submitButton.disabled = false;
+        }
+    }
+    e.stopPropagation();
+}
+
+function startThirthScreen() {
+    createDeck();
+
+    submitButton.classList.add('js-hide-opacity');
+    levelButtons.classList.add('js-hide-opacity');
+    counterContainer.classList.remove('js-hide-opacity');
+    subtitle.classList.add('js-hide-opacity');
+    cardContainer.classList.remove('js-hide-opacity');
+}
+
+function createDeck() {
+    deck = new CardDeck(activeAncient, activeLevel);
+    console.log(deck);
+}
+
+function showNextCard() {
+    currentCard.src = deck._allCardsForGame[0].cardFace;
 }
 
 ancientsCardsContainer.addEventListener('click', selectAncient);
 document.addEventListener('click', removeselect);
-ancientChoiceButton.addEventListener('click', wrapAncientsCards);
+submitButton.addEventListener('click', startSecondScreen);
+levelButtons.addEventListener('click', selectLevel);
+cardBack.addEventListener('click', showNextCard)
 
 //TODO:
-//сделать кнопку более заметной
-//организовать хранение активной карты
-//изменить размер контейнера для карт в функции
-//убрать возможность выбора карты Древнего после ее конечного выбора
-//положить выбранную карту наверх
