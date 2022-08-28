@@ -155,7 +155,7 @@ main {
     max-width: 20%;
     position: absolute;
     left: 35%;
-    transition: .5s;
+    transition: 1s;
 }
 
 .radios-container input[type="radio"]:hover+label,
@@ -189,13 +189,12 @@ main {
     left: calc(50% - 200px);
     padding: 20px;
     border-radius: 10px;
-    /* box-shadow: 5px 2px 15px 1px #000000; */
+    transition: 1s;
 }
 
 .stage-container {
     display: flex;
     transition: 1s;
-    /* justify-content: space-between; */
 }
 
 .stage-title {
@@ -242,10 +241,10 @@ main {
     display: flex;
     position: absolute;
     left: 57.5%;
+    transition: 1s;
 }
 
 .card-back__container {
-    /* padding: 0 20px; */
     opacity: 100%;
     transform: scale(100%);
     transition: .5s;
@@ -258,11 +257,11 @@ main {
     height: auto;
     border-radius: 10px;
     box-shadow: 5px 4px 11px -3px #000000;
+    transition: .5s;
     cursor: pointer;
 }
 
 .current-card-container {
-    /* padding: 0 20px; */
     opacity: 100%;
     transform: scale(100%);
     transition: .5s;
@@ -275,7 +274,11 @@ main {
     height: auto;
     border-radius: 10px;
     transition: .5s;
-    /* box-shadow: 5px 4px 11px -3px #000000; */
+}
+
+.card-back__image:hover {
+    box-shadow: 5px 4px 11px -3px #414141;
+    transition: .5s;
 }
 
 .current-card:hover {
@@ -347,7 +350,12 @@ main {
 
 .js-show-popup {
     transform: translateY(0);
-    transition: .5s all linear;
+    transition: .6s all ease-out;
+}
+
+.js-hide {
+    visibility: hidden;
+    transition: .5s;
 }
 
 .js-hide-opacity {
@@ -356,9 +364,17 @@ main {
     transition: 1s;
 }
 
-.js-hide {
-    visibility: hidden;
-    transition: .5s;
+.js-hide-smooth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 1s;
+}
+
+.js-hide-disappear {
+    opacity: 0;
+    transition: 1s;
 }
 
 .js-hide-fast {

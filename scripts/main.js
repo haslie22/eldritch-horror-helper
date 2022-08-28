@@ -41,7 +41,6 @@ function selectAncient(e) {
         ancientsCards.forEach(card => card.classList.remove('card-chosen'));
         e.target.classList.add('card-chosen');
         activeAncient = e.target.alt;
-        console.log(activeAncient);
         submitButton.disabled = false;
     }
     e.stopPropagation();
@@ -78,12 +77,11 @@ function changeSubtitle() {
 function putActiveAncientOnTop() {
     antientsCardsContainers.forEach((item) => {
         if (item.classList.contains(`${activeAncient}`)) {
-            console.log('ancient');
             item.classList.add('card-overlay');}
     });
 }
 function showLevelButtons() {
-    setTimeout(() => levelButtons.classList.remove('js-hide-fast'), 1000);
+    setTimeout(() => levelButtons.classList.remove('js-hide-fast', 'js-hide-smooth'), 1000);
 }
 
 function startSecondScreen() {
@@ -110,9 +108,9 @@ function startThirthScreen() {
     createDeck();
     submitButton.classList.add('js-hide-opacity');
     levelButtons.classList.add('js-hide-opacity');
-    counterContainer.classList.remove('js-hide-opacity');
+    counterContainer.classList.remove('js-hide-smooth');
     subtitle.classList.add('js-hide-opacity');
-    cardContainer.classList.remove('js-hide-opacity');
+    cardContainer.classList.remove('js-hide-smooth');
 }
 function createDeck() {
     deck = new CardDeck(activeAncient, activeLevel);
@@ -128,7 +126,9 @@ function showNextCard() {
     try {
         currentCardImage.src = currentCard.cardFace;
     } catch {
-        showPopup();
+        cardBack.classList.add('js-hide-opacity');
+        document.querySelector('.stage-dots-container.stage-2').classList.add('js-dot-bw');
+        setTimeout(showPopup, 1000);
     }
 
     currentCardImage.style.boxShadow = '5px 4px 11px -3px #000000';
@@ -150,9 +150,9 @@ function checkStage(currentStage) {
 
 function showPopup() {
     ancientsCards.forEach(image => image.classList.add('js-hide-opacity'));
-    counterContainer.classList.add('js-hide-opacity');
-    cardBack.classList.add('js-hide-opacity');
-    currentCardImage.classList.add('js-hide-opacity');
+    counterContainer.classList.add('js-hide-disappear');
+    cardBack.classList.add('js-hide-disappear');
+    currentCardImage.classList.add('js-hide-disappear');
     overlay.classList.remove('js-hide');
     popup.classList.add('js-show-popup');
 }
@@ -163,6 +163,3 @@ submitButton.addEventListener('click', startSecondScreen);
 levelButtons.addEventListener('click', selectLevel);
 cardBack.addEventListener('click', showNextCard);
 popupSubmitButton.addEventListener('click', () => location.reload());
-
-//FIX:
-// При всех нулях в счетчике затемнять счетчик и убирать колоду с рубашками
