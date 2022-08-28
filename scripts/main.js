@@ -9,9 +9,21 @@ const subtitle = document.querySelector('.title__subtitle_ancients');
 const levelButtons = document.querySelector('.radios-container');
 const levelButtonsInputs = document.querySelectorAll('.radio__input');
 const counterContainer = document.querySelector('.state-container');
+const stageContainer = document.querySelectorAll('.stage-dots-container');
 const cardBack = document.querySelector('.card-back__image');
 const cardContainer = document.querySelector('.deck-container');
-const currentCard = document.querySelector('.current-card')
+const currentCardImage = document.querySelector('.current-card');
+const overlay = document.querySelector('.js-overlay');
+const popup = document.querySelector('.popup');
+const popupSubmitButton = document.querySelector('.popup__submit');
+const counter = function () {
+    return [0, 1, 2].map(function (level) {
+        let res = {};
+        ["green", "brown", "blue"].forEach(color => res[color] = document.querySelector(`.stage-${level} .dot.${color}`));
+
+        return res;
+    })
+}();
 
 let activeAncient = '';
 let activeLevel = '';
@@ -40,38 +52,36 @@ function removeselect(e) {
         ancientsCards.forEach(card => card.classList.remove('card-chosen'));
         submitButton.disabled = true;
     }
-
     if (!e.target.classList.contains('radio__label')) {
         levelButtonsInputs.forEach(input => input.checked = false);
     }
 }
 
-function toggleAncientsCardsDeck() { //в обработчик для кнопки
+function toggleAncientsCardsDeck() {
     antientsCardsContainers.forEach(item => {
-        if (item.classList.contains('cthulthu')) item.classList.toggle('cthulthu-js-distribute');
-        if (item.classList.contains('iogsothoth')) item.classList.toggle('iogsothoth-js-distribute');
-        if (item.classList.contains('shubniggurath')) item.classList.toggle('shubniggurath-js-distribute');
+        if (item.classList.contains('cthulhu')) item.classList.toggle('cthulthu-js-distribute');
+        if (item.classList.contains('iogSothoth')) item.classList.toggle('iogsothoth-js-distribute');
+        if (item.classList.contains('shubNiggurath')) item.classList.toggle('shubniggurath-js-distribute');
         if (item.classList.contains('azathoth')) item.classList.toggle('azathoth-js-distribute');
     })
 }
 
-function changeListenerForButton() { //в обработчик для кнопки
+function changeListenerForButton() {
     ancientsCardsContainer.removeEventListener('click', selectAncient);
     submitButton.addEventListener('click', startThirthScreen);
 }
-
-function changeSubtitle() { //в обработчик для кнопки
+function changeSubtitle() {
     subtitle.classList.add('js-hide-opacity');
     setTimeout(() => subtitle.textContent = 'Выберите уровень сложности', 500);
     setTimeout(() => subtitle.classList.remove('js-hide-opacity'), 500);
 }
-
-function putActiveAncientOnTop() { //в обработчик для кнопки
+function putActiveAncientOnTop() {
     antientsCardsContainers.forEach((item) => {
-        if (item.classList.contains(`${activeAncient}`)) item.classList.add('card-overlay');
+        if (item.classList.contains(`${activeAncient}`)) {
+            console.log('ancient');
+            item.classList.add('card-overlay');}
     });
 }
-
 function showLevelButtons() {
     setTimeout(() => levelButtons.classList.remove('js-hide-fast'), 1000);
 }
@@ -98,27 +108,61 @@ function selectLevel(e) {
 
 function startThirthScreen() {
     createDeck();
-
     submitButton.classList.add('js-hide-opacity');
     levelButtons.classList.add('js-hide-opacity');
     counterContainer.classList.remove('js-hide-opacity');
     subtitle.classList.add('js-hide-opacity');
     cardContainer.classList.remove('js-hide-opacity');
 }
-
 function createDeck() {
     deck = new CardDeck(activeAncient, activeLevel);
-    console.log(deck);
+    renewCounter(deck._state);
 }
 
 function showNextCard() {
-    currentCard.src = deck._allCardsForGame[0].cardFace;
+    let currentCard = deck.pop();
+
+    renewCounter(deck._state);
+    checkStage(deck._stage);
+
+    try {
+        currentCardImage.src = currentCard.cardFace;
+    } catch {
+        showPopup();
+    }
+
+    currentCardImage.style.boxShadow = '5px 4px 11px -3px #000000';
+}
+
+function renewCounter(currentState) {
+    currentState.forEach((levelCounters, i) =>
+        Object.keys(levelCounters).forEach(color => counter[i][color].textContent = currentState[i][color]));
+
+}
+
+function checkStage(currentStage) {
+    if (currentStage > 0) {
+        let stageDots = Array.from(stageContainer[`${currentStage - 1}`].children);
+        Array.prototype.map.call(stageDots, dot => dot.classList.add('js-dot-bw'));
+     }
+}
+
+
+function showPopup() {
+    ancientsCards.forEach(image => image.classList.add('js-hide-opacity'));
+    counterContainer.classList.add('js-hide-opacity');
+    cardBack.classList.add('js-hide-opacity');
+    currentCardImage.classList.add('js-hide-opacity');
+    overlay.classList.remove('js-hide');
+    popup.classList.add('js-show-popup');
 }
 
 ancientsCardsContainer.addEventListener('click', selectAncient);
 document.addEventListener('click', removeselect);
 submitButton.addEventListener('click', startSecondScreen);
 levelButtons.addEventListener('click', selectLevel);
-cardBack.addEventListener('click', showNextCard)
+cardBack.addEventListener('click', showNextCard);
+popupSubmitButton.addEventListener('click', () => location.reload());
 
-//TODO:
+//FIX:
+// При всех нулях в счетчике затемнять счетчик и убирать колоду с рубашками

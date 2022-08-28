@@ -19,8 +19,17 @@
     <script type="module" src="./scripts/main.js"></script>
 </head>
 <body>
-    <div class="js-overlay-popup"></div>
-    <div class="js-overlay"></div>
+    <div class="js-overlay-popup">
+        <div class="popup">
+            <div class="popup__wrapper">
+                <div class="popup__title">
+                    <h3 class="popup__title-text">Поздравляем, игра окончена!</h3>
+                </div>
+                <button class="popup__submit">Замешать новую колоду</button>
+            </div>
+        </div>
+    </div>
+    <div class="js-overlay js-hide"></div> 
     <div class="wrapper">
         <header class="header">
             <div class="title__wrapper">
@@ -32,16 +41,16 @@
             <div class="main__content-wrapper">
                 <div class="ancients-cards__container">
                     <div class="ancient-cards__card azathoth">
-                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow azathoth" src="./assets/Ancients/Azathoth.png" alt="azathoth" class="ancient-cards__card-image">
+                        <img class="ancient-cards__card-image azathoth" src="./assets/Ancients/Azathoth.png" alt="azathoth" class="ancient-cards__card-image">
                     </div>
-                    <div class="ancient-cards__card cthulthu" >
-                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow cthulthu" src="./assets/Ancients/Cthulthu.png" alt="cthulhu" class="ancient-cards__card-image">
+                    <div class="ancient-cards__card cthulhu" >
+                        <img class="ancient-cards__card-image cthulhu" src="./assets/Ancients/Cthulthu.png" alt="cthulhu" class="ancient-cards__card-image">
                     </div>
-                    <div class="ancient-cards__card iogsothoth">
-                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow iogsothoth" src="./assets/Ancients/IogSothoth.png" alt="iogSothoth" class="ancient-cards__card-image">
+                    <div class="ancient-cards__card iogSothoth">
+                        <img class="ancient-cards__card-image iogSothoth" src="./assets/Ancients/IogSothoth.png" alt="iogSothoth" class="ancient-cards__card-image">
                     </div>
-                    <div class="ancient-cards__card shubniggurath">
-                        <img class="ancient-cards__card-image ancient-cards__card-image_shadow shubniggurath" src="./assets/Ancients/ShubNiggurath.png" alt="shubNiggurath" class="ancient-cards__card-image">
+                    <div class="ancient-cards__card shubNiggurath">
+                        <img class="ancient-cards__card-image shubNiggurath" src="./assets/Ancients/ShubNiggurath.png" alt="shubNiggurath" class="ancient-cards__card-image">
                     </div>
                 </div>
                 <ul class="radios-container js-hide-fast">
@@ -69,7 +78,7 @@
                 <div class="state-container js-hide-opacity">
                     <div class="stage-container">
                         <span class="stage-title">I.</span>
-                        <div class="stage-dots-container">
+                        <div class="stage-dots-container stage-0">
                             <div class="dot green">0</div>
                             <div class="dot brown">0</div>
                             <div class="dot blue">0</div>
@@ -77,7 +86,7 @@
                     </div>
                     <div class="stage-container">
                         <span class="stage-title">II.</span>
-                        <div class="stage-dots-container">
+                        <div class="stage-dots-container stage-1">
                             <div class="dot green">0</div>
                             <div class="dot brown">0</div>
                             <div class="dot blue">0</div>
@@ -85,7 +94,7 @@
                     </div>
                     <div class="stage-container">
                         <span class="stage-title">III.</span>
-                        <div class="stage-dots-container">
+                        <div class="stage-dots-container stage-2">
                             <div class="dot green">0</div>
                             <div class="dot brown">0</div>
                             <div class="dot blue">0</div>
@@ -107,6 +116,6 @@
                 <button class="ancient-button" disabled>Продолжить</button>
             </div>
         </footer>
-    </div>  
+    </div>
 </body>
 </html>
