@@ -322,11 +322,18 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .popup__title-text {
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
+}
+
+.emojis {
+    font-size: 36px;
+    text-shadow: none;
+    margin-bottom: 40px;
 }
 
 .popup__submit {

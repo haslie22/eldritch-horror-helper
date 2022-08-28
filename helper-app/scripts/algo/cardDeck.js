@@ -55,4 +55,9 @@ export class CardDeck {
     get state() {
         return this._state;
     }
+
+    isGameOver() {
+        console.log(55);
+        return this._next >= this._allCardsForGame.length;
+    }
 }

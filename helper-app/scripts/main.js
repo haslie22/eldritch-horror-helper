@@ -122,6 +122,8 @@ function showNextCard() {
 
     renewCounter(deck._state);
     checkStage(deck._stage);
+    console.log(deck.isGameOver());
+    if (deck.isGameOver()) changeCardBack();
 
     try {
         currentCardImage.src = currentCard.cardFace;
@@ -144,7 +146,11 @@ function checkStage(currentStage) {
     if (currentStage > 0) {
         let stageDots = Array.from(stageContainer[`${currentStage - 1}`].children);
         Array.prototype.map.call(stageDots, dot => dot.classList.add('js-dot-bw'));
-     }
+    }
+}
+
+function changeCardBack() {
+    cardBack.src = './assets/Images/finalCard.png';
 }
 
 

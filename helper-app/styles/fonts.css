@@ -2,19 +2,19 @@
 	font-family: 'Birmingham'; 
     font-weight: normal;
 	src: local('Birmingham'),
-		url(/assets/Fonts/Birmingham.ttf); 
+		url(../assets/Fonts/Birmingham.ttf); 
 }
 
 @font-face {
 	font-family: 'Birmingham'; 
     font-weight: bold;
 	src: local('Birmingham'),
-		url(/assets/Fonts/BirminghamBold.ttf); 
+		url(../assets/Fonts/BirminghamBold.ttf); 
 }
 
 @font-face {
 	font-family: 'Birmingham'; 
     font-weight: bolder;
 	src: local('Birmingham'),
-		url(/assets/Fonts/BirminghamTitlingBold.ttf); 
+		url(../assets/Fonts/BirminghamTitlingBold.ttf); 
 }
