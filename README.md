@@ -11,4 +11,4 @@ This app is created with:
 
 Deployment link is [here](https://haslie22.github.io/eldritch-horror-helper/helper-app/)
 
-[App screenshot](https://user-images.githubusercontent.com/79032502/187098816-72905fed-8643-4050-a1b1-133189768cbb.png)
+![App screenshot](https://user-images.githubusercontent.com/79032502/187098816-72905fed-8643-4050-a1b1-133189768cbb.png)
