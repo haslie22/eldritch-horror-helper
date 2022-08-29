@@ -84,6 +84,7 @@ main {
 
 .ancient-cards__card-image {
     max-width: 100%;
+    min-width: 150px;
     height: auto;
     border-radius: 10px;
     box-shadow: 5px 4px 11px -3px #000000;
@@ -328,10 +329,11 @@ main {
 .popup__title-text {
     margin-top: 40px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .emojis {
-    font-size: 36px;
+    font-size: 22px;
     text-shadow: none;
     margin-bottom: 40px;
 }
@@ -387,4 +389,189 @@ main {
 .js-hide-fast {
     transform: scale(0);
     display: none;
+}
+
+@media screen and (max-width: 940px) {
+    .state-container {
+        left: calc(50% - 180px);
+    }
+
+    .deck-container {
+        left: 60%;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .state-container {
+        left: calc(50% - 160px);
+    }
+
+    .deck-container {
+        left: 62.5%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        margin-top: 0;
+    }
+
+    .ancients-cards__container {
+        width: 92.5%;
+        margin-left: 5%;
+    }
+
+    .radios-container {
+        max-width: none;
+    }
+
+    .state-container {
+        left: 50%;
+    }
+
+    .deck-container {
+        max-height: 30%;
+        bottom: 5%;
+        left: 7.5%;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .ancient-cards__card-image {
+        min-width: 125px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .ancient-cards__card-image {
+        min-width: 150px;
+    }
+
+    .card-chosen {
+        transform: scale(1);
+    }
+
+    .cthulthu-js-distribute {
+        transform: translateX(202.5%);
+    }
+
+    .iogsothoth-js-distribute {
+        transform: translateX(85%) translateY(102.5%);
+    }
+
+    .shubniggurath-js-distribute {
+        transform: translateX(285%) translateY(102.5%);
+    }
+
+    .ancient-cards__card-image:hover {
+        transform: scale(1);
+    }
+
+    .radios-container {
+        left: 50%;
+    }
+
+    .deck-container {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .header {
+        margin-top: 10px;
+    }
+
+    .iogsothoth-js-distribute {
+        transform: translateX(60%) translateY(102.5%);
+    }
+
+    .state-container {
+        left: 42%;
+    }
+
+}
+
+@media screen and (max-width: 410px) {
+    .title__subtitle_ancients {
+        font-size: 22px;
+    }
+
+    .azathoth-js-distribute {
+        transform: translateX(-5%) translateY(-15%);
+    }
+
+    .cthulthu-js-distribute {
+        transform: translateX(225%) translateY(-15%);
+    }
+
+    .iogsothoth-js-distribute {
+        transform: translateX(-5%) translateY(92.5%);
+    }
+
+    .shubniggurath-js-distribute {
+        transform: translateX(225%) translateY(92.5%);
+    }
+
+    .state-container {
+        left: 48%;
+    }
+
+    .radios-container {
+        max-width: 40%;
+        min-height: auto;
+        left: 55%;
+    }
+
+    .stage-container {
+        max-width: 45%;
+    }
+
+    .radio__label {
+        font-size: 18px;
+    }
+
+    .stage-dots-container {
+        min-width: 130px;
+    }
+
+    .stage-title {
+        font-size: 18px;
+        margin-right: 0;
+    }
+
+    .dot {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .deck-container {
+        bottom: 15%;
+        width: 95%;
+    }
+
+    .card-back__image {
+        min-width: 140px;
+    }
+
+    .current-card {
+        min-width: 140px;
+    }
+
+    .popup {
+        min-width: 70%;
+        font-size: 18px;
+    }
+
+    .popup__submit {
+        min-width: 0;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .popup__title-text, .emojis {
+        font-size: 18px;
+        margin: 0 0 20px 0;
+    }
 }

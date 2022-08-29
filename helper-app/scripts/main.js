@@ -28,6 +28,7 @@ const counter = function () {
 let activeAncient = '';
 let activeLevel = '';
 let deck;
+let cardsPathsArray = [];
 
 function showTitle() {
     ancientsSubtitle.classList.remove('js-hide-opacity');
@@ -114,7 +115,16 @@ function startThirthScreen() {
 }
 function createDeck() {
     deck = new CardDeck(activeAncient, activeLevel);
+    window.addEventListener('load', preloadCardsImages);
     renewCounter(deck._state);
+}
+
+function preloadCardsImages() {
+    deck._allCardsForGame.forEach(image => cardsPathsArray.push(image.cardFace));
+    cardsPathsArray.forEach(() => {
+        let img = new Image;
+        img.src = this;
+    })
 }
 
 function showNextCard() {
@@ -122,7 +132,6 @@ function showNextCard() {
 
     renewCounter(deck._state);
     checkStage(deck._stage);
-    console.log(deck.isGameOver());
     if (deck.isGameOver()) changeCardBack();
 
     try {
@@ -130,7 +139,7 @@ function showNextCard() {
     } catch {
         cardBack.classList.add('js-hide-opacity');
         document.querySelector('.stage-dots-container.stage-2').classList.add('js-dot-bw');
-        setTimeout(showPopup, 1000);
+        setTimeout(showPopup, 500);
     }
 
     currentCardImage.style.boxShadow = '5px 4px 11px -3px #000000';
